@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to Basic Banking Corporation</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+    /*background of the blue picture */
+      body {
+        background-image: url("images/blue.jpg");
+        background-size: cover;
+        /* Adjust the background-size property to zoom out */
+        background-size: 100%;
+      }
+      .container {
+        margin-top: 50px;
+      }
+      /* Set up for the box we put everything in */
+      .box {
+        background-color: #ADD8E6;
+        padding: 20px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      h1 {
+        font-size: 36px;
+      }
+      h2 {
+        font-size: 28px;
+      }
+
+      .img-fluid {
+        transition: transform 0.2s;
+      }
+/* allows picture to pop up when hovered */
+      .img-fluid:hover {
+        transform: scale(1.1);
+      }
+/* Hello there ____ (font)*/
+      .greeting {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Create a container element to center the content -->
+    <div class="container">
+      <div class="box" style="box-shadow: 0 0 10px 5px rgba(0, 0, 0, .50);">
+        <h1>Welcome to:</h1>
+        <h2>Basic Banking Corporation</h2>
+        <div class="row mt-5">
+          <div class="col-sm-6">
+            <a
+              href="admin_login.php"
+            >
+                <!-- Picture of admin guy -->
+              <img
+                class="img-fluid"
+                src="./images/adminguy.png"
+                alt="Admin Login"
+                width="200"
+                height="270"
+                onmouseover="changeGreeting('admin')"
+                onmouseout="resetGreeting()"
+              />
+            </a>
+          </div>
+          <div class="col-sm-6">
+            <a
+              href="user_login.php"
+            >
+                <!-- Picture of user guy -->
+              <img
+                class="img-fluid"
+                src="./images/userguy.png"
+                alt="User Login"
+                width="200"
+                height="270"
+                onmouseover="changeGreeting('user')"
+                onmouseout="resetGreeting()"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="greeting" id="greeting"></div>
+      </div>
+    </div>
+    <script>
+    // Function to change the greeting message based on the login type
+      function changeGreeting(type) {
+        var greeting = document.getElementById("greeting");
+        //admin hover
+        if (type == "admin") {
+          greeting.innerHTML = "Hello there admin";
+        }
+        //user hover
+        else {
+          greeting.innerHTML = "Hello there user";
+        }
+      }
+//for when the user does not have mouse hovered over any choice (displays nothing underneath)
+      function resetGreeting() {
+        var greeting = document.getElementById("greeting");
+        greeting.innerHTML = "";
+      }
+    </script>
+  </body>
+</html>
